@@ -23,7 +23,7 @@ order by 2,3 desc"
 
 df <- data.frame(fromJSON(getURL(URLencode(gsub("\n", " ", '129.152.144.84:5001/rest/native/?query=
 "SELECT year, states, cigarette_tax_dollar_per_pack, nth_value(cigarette_tax_dollar_per_pack, 2)
-OVER (PARTITION BY year) nth_tax 
+OVER (PARTITION BY year order by cigarette_tax_dollar_per_pack desc) nth_tax 
 FROM cig_tax
 order by 2,3 desc"
 ')),httpheader=c(DB='jdbc:oracle:thin:@129.152.144.84:1521:ORCL', USER='C##cs329e_bb25684', PASS='orcl_bb25684', MODE='native_mode', MODEL='model', returnDimensions = 'False', returnFor = 'JSON'), verbose = TRUE))); tbl_df(df)
