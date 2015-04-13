@@ -1,0 +1,8 @@
+require("plyr")
+require("dplyr")
+require("jsonlite")
+require("RCurl")
+require("tidyr")
+require("ggplot2")
+require("ggthemes")
+require("grid")
